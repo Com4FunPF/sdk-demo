@@ -1,0 +1,43 @@
+
+{
+  "project_info": {
+    "project_number": "162813251666",
+    "firebase_url": "https://juslucky-e1a12.firebaseio.com",
+    "project_id": "juslucky-e1a12",
+    "storage_bucket": "juslucky-e1a12.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:162813251666:android:f63d488c1b654754",
+        "android_client_info": {
+          "package_name": "com.ms.hlj.juslucky"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "162813251666-41j1kjoq745hlg0qofatv3u748jimloc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKyb4oWNHsh9YV0zbaXspHIOqDPg80ncg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
