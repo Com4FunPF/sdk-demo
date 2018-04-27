@@ -68,7 +68,7 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onSuccess(User user) {
                 toast("login success");
-                Log.d("Demo", "login :" + Json.toJson(user));
+                log("Demo", "login :" + Json.toJson(user));
                 dismissProgress();
                 showUser(user);
             }
@@ -160,6 +160,10 @@ public class MainActivity extends BaseActivity {
         tvHint.setText(sb.toString());
     }
 
+    private void log(String tag, String text){
+        tvHint.setText(tag + ":" + text);
+    }
+
     BannerAdView bannerAdView;
 
     public void loadBanner(View view) {
@@ -171,28 +175,28 @@ public class MainActivity extends BaseActivity {
         bannerAdView.setAdListener(new AdListener() {
             @Override
             public void onAdError(Ad ad, AdError adError) {
-                Log.d(TAG, adError.getErrorMessage());
+                log(TAG, adError.getErrorMessage());
             }
 
             @Override
             public void onAdLoaded(Ad ad) {
-                Log.d(TAG, "onAdLoaded");
+                log(TAG, "onAdLoaded");
                 llScrollContent.addView(bannerAdView);
             }
 
             @Override
             public void onAdShowed(Ad ad) {
-                Log.d(TAG, "onAdShowed");
+                log(TAG, "onAdShowed");
             }
 
             @Override
             public void onAdClosed(Ad ad) {
-                Log.d(TAG, "onAdClosed");
+                log(TAG, "onAdClosed");
             }
 
             @Override
             public void onAdClicked(Ad ad) {
-                Log.d(TAG, "onAdClicked");
+                log(TAG, "onAdClicked");
             }
         });
         bannerAdView.loadAd(AdRequest.newBuilder().pid("banner@justlucky").build());
@@ -209,28 +213,28 @@ public class MainActivity extends BaseActivity {
         interstitialAd.setAdListener(new AdListener() {
             @Override
             public void onAdError(Ad ad, AdError adError) {
-                Log.d(TAG, adError.getErrorMessage());
+                log(TAG, adError.getErrorMessage());
             }
 
             @Override
             public void onAdLoaded(Ad ad) {
-                Log.d(TAG, "onAdLoaded");
+                log(TAG, "onAdLoaded");
                 interstitialAd.show();
             }
 
             @Override
             public void onAdShowed(Ad ad) {
-                Log.d(TAG, "onAdShowed");
+                log(TAG, "onAdShowed");
             }
 
             @Override
             public void onAdClosed(Ad ad) {
-                Log.d(TAG, "onAdClosed");
+                log(TAG, "onAdClosed");
             }
 
             @Override
             public void onAdClicked(Ad ad) {
-                Log.d(TAG, "onAdClicked");
+                log(TAG, "onAdClicked");
             }
         });
         interstitialAd.loadAd(AdRequest.newBuilder().pid("interstitial@justlucky").build());

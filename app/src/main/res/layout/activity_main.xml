@@ -83,15 +83,6 @@
             android:text="Interstitial"
             android:onClick="loadInterstitial"
             />
-        <Button
-            android:id="@+id/btn_load_native"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Native"
-            android:onClick="loadNative"
-            />
     </LinearLayout>
 
 
