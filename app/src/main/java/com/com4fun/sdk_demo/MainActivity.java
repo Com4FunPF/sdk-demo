@@ -12,6 +12,7 @@ import com.ms.monetize.ads.AdListener;
 import com.ms.monetize.ads.AdRequest;
 import com.ms.monetize.ads.BannerAdView;
 import com.ms.monetize.ads.InterstitialAd;
+import com.ms.sdk.pf.PFKey;
 import com.ms.sdk.pf.PFSDK;
 import com.ms.sdk.pf.api.CallBack;
 import com.ms.sdk.pf.api.PFAPI;
@@ -38,9 +39,9 @@ public class MainActivity extends BaseActivity {
 
     public void init(View view) {
         Map<String, String> params = new HashMap<>();
-        params.put("appId", "200100");
+        params.put(PFKey.APP_ID, "200100");
         showProgress("Initing ...");
-        PFSDK.init(this, params, new CallBack<PFAPI>() {
+        PFSDK.init(getApplication(), params, new CallBack<PFAPI>() {
             @Override
             public void onSuccess(PFAPI pfapi) {
                 toast("api init success");
@@ -108,9 +109,9 @@ public class MainActivity extends BaseActivity {
         }
 
         Map<String, String> params = new HashMap<>();
-        params.put("amount", "1");
+        params.put(PFKey.AMOUNT, "1");
         User user = pfapi.getCurrentUser();
-        params.put("uid", user == null ? null : user.getUId());
+        params.put(PFKey.UID, user == null ? null : user.getUId());
         showProgress("Paying ...");
         pfapi.pay(this, params, new CallBack<PayResult>() {
             @Override
