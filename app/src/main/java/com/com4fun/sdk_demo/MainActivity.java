@@ -1,17 +1,20 @@
 package com.com4fun.sdk_demo;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.doubleclick.PublisherAdRequest;
 import com.ms.monetize.ads.Ad;
 import com.ms.monetize.ads.AdError;
 import com.ms.monetize.ads.AdListener;
 import com.ms.monetize.ads.AdRequest;
 import com.ms.monetize.ads.BannerAdView;
 import com.ms.monetize.ads.InterstitialAd;
+import com.ms.monetize.ads.VideoAd;
 import com.ms.sdk.pf.PFKey;
 import com.ms.sdk.pf.PFSDK;
 import com.ms.sdk.pf.api.CallBack;
@@ -246,5 +249,42 @@ public class MainActivity extends BaseActivity {
             return;
         }
 
+    }
+
+    private VideoAd videoAd;
+    public void loadVideo(View view){
+        if (pfapi == null) {
+            toast("shoud init first");
+            return;
+        }
+        videoAd = new VideoAd(view.getContext(), "juslucky@rewardVideo", "12345");
+        videoAd.init();
+        videoAd.loadAd(new AdListener() {
+            @Override
+            public void onAdError(Ad ad, AdError adError) {
+                log(TAG, "onAdError：" + adError.getErrorMessage());
+            }
+
+            @Override
+            public void onAdLoaded(Ad ad) {
+                log(TAG, "onAdLoaded");
+                videoAd.show();
+            }
+
+            @Override
+            public void onAdShowed(Ad ad) {
+                log(TAG, "onAdShowed");
+            }
+
+            @Override
+            public void onAdClosed(Ad ad) {
+                log(TAG, "onAdClosed");
+            }
+
+            @Override
+            public void onAdClicked(Ad ad) {
+                log(TAG, "onAdClicked");
+            }
+        });
     }
 }
