@@ -23,6 +23,10 @@ allprojects {
         maven {
             url 'https://raw.githubusercontent.com/Com4FunPF/maven-repository/master'
         }
+        // adcolony ad sdk maven repository
+        maven { url 'https://adcolony.bintray.com/AdColony' }
+        // vungle ad sdk maven repository
+        maven { url 'https://jitpack.io' }
     }
 
 }
